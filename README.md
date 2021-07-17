@@ -1,4 +1,7 @@
 # UIKit
+
+[![](https://jitpack.io/v/yuyi2583/UIKit.svg)](https://jitpack.io/#yuyi2583/UIKit)
+
 Android UI Library
 
 ### preview
@@ -26,6 +29,6 @@ allprojects {
 
 ```css
 dependencies {
-	        implementation 'com.github.yuyi2583:UIKit:Tag'
-	}
+	   implementation 'com.github.yuyi2583:UIKit:1.1'
+}
 ```
