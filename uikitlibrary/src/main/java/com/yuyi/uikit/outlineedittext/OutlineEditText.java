@@ -65,31 +65,22 @@ public class OutlineEditText extends LinearLayout {
         final int N=typedArray.getIndexCount();
         for(int i=0;i<N;i++){
             int attr = typedArray.getIndex(i);
-            switch (attr){
-                case R.styleable.OutlineEditText_hint:
-                    setHint(typedArray.getString(attr));
-                    break;
-                case R.styleable.OutlineEditText_title:
-                    setTitle(typedArray.getString(attr));
-                    break;
-                case R.styleable.OutlineEditText_tip:
-                    setTip(typedArray.getString(attr));
-                    break;
-                case R.styleable.OutlineEditText_titleTextColor:
-                    defaultTitleColor = typedArray.getColor(attr, Color.parseColor("#999999"));
-                    setTitleColor(defaultTitleColor);
-                    break;
-                case R.styleable.OutlineEditText_tipTextColor:
-                    defaultTipColor=typedArray.getColor(attr,Color.parseColor("#888888"));
-                    setTipColor(defaultTipColor);
-                    break;
-                case R.styleable.OutlineEditText_tipVisibility:
-                    setTipVisibility(typedArray.getInt(attr,GONE));
-                    break;
-                case R.styleable.OutlineEditText_android_inputType:
-                    setInputType(typedArray.getInt(attr,InputType.TYPE_CLASS_TEXT));
-                    break;
-
+            if (attr == R.styleable.OutlineEditText_hint) {
+                setHint(typedArray.getString(attr));
+            } else if (attr == R.styleable.OutlineEditText_title) {
+                setTitle(typedArray.getString(attr));
+            } else if (attr == R.styleable.OutlineEditText_tip) {
+                setTip(typedArray.getString(attr));
+            } else if (attr == R.styleable.OutlineEditText_titleTextColor) {
+                defaultTitleColor = typedArray.getColor(attr, Color.parseColor("#999999"));
+                setTitleColor(defaultTitleColor);
+            } else if (attr == R.styleable.OutlineEditText_tipTextColor) {
+                defaultTipColor = typedArray.getColor(attr, Color.parseColor("#888888"));
+                setTipColor(defaultTipColor);
+            } else if (attr == R.styleable.OutlineEditText_tipVisibility) {
+                setTipVisibility(typedArray.getInt(attr, GONE));
+            } else if (attr == R.styleable.OutlineEditText_android_inputType) {
+                setInputType(typedArray.getInt(attr, InputType.TYPE_CLASS_TEXT));
             }
         }
         typedArray.recycle();
