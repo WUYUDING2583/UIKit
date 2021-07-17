@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="OutlineEditText">
+        <!-- title -->
         <attr name="title" format="string"/>
+        <attr name="titleVisibility" format="enum">
+            <!-- Visible on screen; the default value. -->
+            <enum name="visible" value="0x00000000" />
+            <!-- Not displayed, but taken into account during layout (space is left for it). -->
+            <enum name="invisible" value="0x00000004" />
+            <!-- Completely hidden, as if the view had not been added. -->
+            <enum name="gone" value="0x00000008" />
+        </attr>
+        <attr name="titleTextColor" format="color"/>
+        <attr name="titleBackground" format="reference|color"/>
+        <!-- hint -->
         <attr name="hint" format="string"/>
+        <!-- tip -->
         <attr name="tip" format="string"/>
         <attr name="tipVisibility" format="enum">
             <!-- Visible on screen; the default value. -->
-            <enum name="visible" value="0" />
+            <enum name="visible" value="0x00000000" />
             <!-- Not displayed, but taken into account during layout (space is left for it). -->
-            <enum name="invisible" value="1" />
+            <enum name="invisible" value="0x00000004" />
             <!-- Completely hidden, as if the view had not been added. -->
-            <enum name="gone" value="2" />
+            <enum name="gone" value="0x00000008" />
         </attr>
-        <attr name="titleTextColor" format="color"/>
         <attr name="tipTextColor" format="color"/>
+        <attr name="inputBackground" format="color|reference"/>
         <attr name="android:inputType"/>
     </declare-styleable>
 </resources>
