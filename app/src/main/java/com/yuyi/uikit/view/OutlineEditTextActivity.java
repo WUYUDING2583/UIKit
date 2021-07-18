@@ -87,9 +87,9 @@ public class OutlineEditTextActivity extends AppCompatActivity {
 
     public void changeInputBackground(View view) {
         if(!changeInputBackground) {
-            oetInput.setEditTextBackground(getDrawable(R.drawable.bg_red_radius10));
+            oetInput.setInputBackground(getDrawable(R.drawable.bg_red_radius10));
         }else{
-            oetInput.setEditTextBackground(getDrawable(R.drawable.bg_gray_radius10));
+            oetInput.setInputBackground(getDrawable(R.drawable.bg_gray_radius10));
         }
         changeInputBackground=!changeInputBackground;
     }

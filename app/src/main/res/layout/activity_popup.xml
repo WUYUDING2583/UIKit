@@ -9,7 +9,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp200"
+        android:layout_marginTop="@dimen/dp100"
         android:layout_gravity="center_horizontal"
         android:text="success"
         android:onClick="success"/>
@@ -37,4 +37,22 @@
         android:layout_gravity="center_horizontal"
         android:text="Customize Color"
         android:onClick="customizeColor"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Customize Duration"
+        android:onClick="addDuration"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Customize OnClick Listener"
+        android:onClick="setOnClick"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Customize OnClose Listener"
+        android:onClick="setOnClose"/>
 </LinearLayout>

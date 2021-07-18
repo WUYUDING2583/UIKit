@@ -106,25 +106,40 @@ public class OutlineEditText extends LinearLayout {
                     defaultInputBackground = a.getDrawable(attr);
                     if (defaultInputBackground == null)
                         defaultInputBackground = context.getDrawable(R.drawable.bg_gray_radius10);
-                    setEditTextBackground(defaultInputBackground);
+                    setInputBackground(defaultInputBackground);
                     break;
             }
         }
         a.recycle();
     }
 
+    /**
+     * set title's background
+     * @param background
+     */
     public void setTitleBackground(Drawable background) {
         if (background != null) {
             tvTitle.setBackground(background);
         }
     }
 
-    public void setEditTextBackground(Drawable background) {
+    /**
+     * set EditText' background
+     * @param background if null, set the background as default one
+     */
+    public void setInputBackground(Drawable background) {
         Log.e(TAG, "setAttrs: "+background);
         if (background != null)
             edInput.setBackground(background);
         else
             edInput.setBackground(defaultInputBackground);
+    }
+
+    /**
+     * set EditText' background as the default background
+     */
+    public void setInputBackground(){
+        setInputBackground(null);
     }
 
     /**

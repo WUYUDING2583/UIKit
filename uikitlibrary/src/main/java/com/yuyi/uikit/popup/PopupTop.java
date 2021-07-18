@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -42,18 +43,23 @@ public class PopupTop extends PopupWindow implements PopupType{
     private int contentViewHeight;
 
     private Context context;
-    private String direction=TOP;
+    private int gravity= Gravity.TOP;
+    private boolean dismissed=false;
 
     private final Handler handler=new Handler(Looper.getMainLooper()){
         @Override
         public void handleMessage(@NonNull Message msg) {
-            if(msg.what==HANDLER_CLOSE_POPUP){
+            if(msg.what==HANDLER_CLOSE_POPUP&&!dismissed){
                 dismiss();
             }
         }
     };
+    private long delayMillis=2000;
 
-    public PopupTop(Context context) {
+    private Popup.OnClick onClickListener=null;
+    private Popup.OnClose onCloseListener=null;
+
+    PopupTop(Context context) {
         //设置view
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.popup_dialog_top, null);
@@ -68,6 +74,15 @@ public class PopupTop extends PopupWindow implements PopupType{
             @Override
             public void onClick(View v) {
                 dismiss();
+            }
+        });
+
+        rlRoot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(onClickListener!=null){
+                    onClickListener.onClick();
+                }
             }
         });
 
@@ -86,11 +101,12 @@ public class PopupTop extends PopupWindow implements PopupType{
         setOutsideTouchable(true);//是否可以通过点击屏幕外来关闭
     }
 
-    public PopupTop(Context context,String title){
+    PopupTop(Context context,String title){
         this(context);
         setTitle(title);
     }
-    public PopupTop(Context context,String title,@ColorInt int color){
+
+    PopupTop(Context context,String title,@ColorInt int color){
         this(context);
         setTitle(title);
         setBackgroundColor(color);
@@ -102,7 +118,7 @@ public class PopupTop extends PopupWindow implements PopupType{
         ObjectAnimator.ofFloat(getContentView(),TRANSLATION_Y,-getHeight(),0)
                 .setDuration(APPEAR_DURATION)
                 .start();
-        handler.sendEmptyMessageDelayed(HANDLER_CLOSE_POPUP,2000);
+        handler.sendEmptyMessageDelayed(HANDLER_CLOSE_POPUP,delayMillis);
     }
 
     @Override
@@ -114,6 +130,10 @@ public class PopupTop extends PopupWindow implements PopupType{
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 PopupTop.super.dismiss();
+                if(onCloseListener!=null){
+                    onCloseListener.onClose();
+                }
+                dismissed=true;
             }
         });
         animator.start();
@@ -146,36 +166,55 @@ public class PopupTop extends PopupWindow implements PopupType{
     }
 
     @Override
-    public void error(View parent, int gravity) {
+    public void error() {
         rlRoot.setBackgroundColor(context.getResources().getColor(R.color.error));
-        showAtLocation(parent, gravity,0,0);
+        showAtLocation(((Activity) context).getWindow().getDecorView(), gravity,0,0);
     }
 
 
     @Override
-    public void success(View parent, int gravity) {
+    public void success() {
         rlRoot.setBackgroundColor(context.getResources().getColor(R.color.success));
-        showAtLocation(parent, gravity,0,0);
+        showAtLocation(((Activity) context).getWindow().getDecorView(), gravity,0,0);
     }
 
 
 
     @Override
-    public void warning(View parent, int gravity) {
+    public void warning() {
         rlRoot.setBackgroundColor(context.getResources().getColor(R.color.warning));
-        showAtLocation(parent, gravity,0,0);
+        showAtLocation(((Activity) context).getWindow().getDecorView(), gravity,0,0);
     }
 
     @Override
-    public void info(View parent, int gravity) {
+    public void info() {
         rlRoot.setBackgroundColor(context.getResources().getColor(R.color.info));
-        showAtLocation(parent, gravity,0,0);
+        showAtLocation(((Activity) context).getWindow().getDecorView(), gravity,0,0);
+    }
+
+
+    @Override
+    public void show(int color) {
+        rlRoot.setBackgroundColor(color);
+        showAtLocation(((Activity) context).getWindow().getDecorView(), gravity,0,0);
     }
 
     @Override
-    public void show(View parent, int gravity, int color) {
-        rlRoot.setBackgroundColor(color);
-        showAtLocation(parent, gravity,0,0);
+    public PopupType duration(long millis) {
+        delayMillis=millis;
+        return this;
+    }
+
+    @Override
+    public PopupType onClick(Popup.OnClick onClick) {
+        this.onClickListener=onClick;
+        return this;
+    }
+
+    @Override
+    public PopupType onClose(Popup.OnClose onClose) {
+        this.onCloseListener=onClose;
+        return this;
     }
 
     public void setTitle(String title){
@@ -187,8 +226,5 @@ public class PopupTop extends PopupWindow implements PopupType{
         rlRoot.setBackgroundColor(color);
     }
 
-    public void setDirection(String direction){
-        this.direction=direction;
-    }
 
 }

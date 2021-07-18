@@ -8,11 +8,11 @@ Android UI Library
 
 ## preview
 
-### [OutlineEditText](./usage/OutlineEditText.md)
+### [OutlineEditText](./usage/OutlineEditText-en.md)
 
 ![](./usage/assets/outlineedittext.jpg)
 
-### [Popup](./usage/Popup.md)
+### [Popup](./usage/Popup-en.md)
 
 ![](./usage/assets/popup.png)
 
