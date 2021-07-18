@@ -14,7 +14,7 @@ Android UI库
 
 ### [Popup](./usage/Popup.md)
 
-![](./usage/assets/popup.png)
+<img src="./usage/assets/popup.jpg" style="zoom:33%;" />
 
 ## 添加依赖
 
