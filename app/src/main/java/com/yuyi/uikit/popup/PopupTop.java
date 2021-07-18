@@ -17,6 +17,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 
 import com.yuyi.uikit.R;
@@ -88,6 +89,11 @@ public class PopupTop extends PopupWindow implements PopupType{
     public PopupTop(Context context,String title){
         this(context);
         setTitle(title);
+    }
+    public PopupTop(Context context,String title,@ColorInt int color){
+        this(context);
+        setTitle(title);
+        setBackgroundColor(color);
     }
 
     @Override
@@ -166,15 +172,23 @@ public class PopupTop extends PopupWindow implements PopupType{
         showAtLocation(parent, gravity,0,0);
     }
 
+    @Override
+    public void show(View parent, int gravity, int color) {
+        rlRoot.setBackgroundColor(color);
+        showAtLocation(parent, gravity,0,0);
+    }
+
     public void setTitle(String title){
         tvTitle.setText(title);
     }
 
-    public void setBackgroundColor(int color){
+
+    public void setBackgroundColor(@ColorInt int color){
         rlRoot.setBackgroundColor(color);
     }
 
     public void setDirection(String direction){
         this.direction=direction;
     }
+
 }

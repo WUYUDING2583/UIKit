@@ -29,6 +29,6 @@ allprojects {
 
 ```css
 dependencies {
-	   implementation 'com.github.yuyi2583:UIKit:1.1'
+	   implementation 'com.github.yuyi2583:UIKit:1.0.1'
 }
 ```
