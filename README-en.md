@@ -2,11 +2,11 @@
 
 [![](https://jitpack.io/v/yuyi2583/UIKit.svg)](https://jitpack.io/#yuyi2583/UIKit)
 
-Android UI库
+[中文](./README.md) | **English**
 
-**中文** | [English](./README-en.md)
+Android UI Library
 
-## 前瞻
+## preview
 
 ### [OutlineEditText](./usage/OutlineEditText.md)
 
@@ -16,7 +16,7 @@ Android UI库
 
 ![](./usage/assets/popup.png)
 
-## 添加依赖
+## Add the dependency
 
 ```css
 allprojects {
