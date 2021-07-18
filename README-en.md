@@ -14,7 +14,7 @@ Android UI Library
 
 ### [Popup](./usage/Popup-en.md)
 
-![](./usage/assets/popup.png)
+<img src="./usage/assets/popup.jpg" style="zoom:25%;" />
 
 ## Add the dependency
 

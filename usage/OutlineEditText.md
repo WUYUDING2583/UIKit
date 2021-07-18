@@ -4,7 +4,7 @@
 
 这是一个带标题和底部提示的输入框控件，可以自由设置各部分的background
 
-![](./assets/outlineedittextdemo.gif)
+<img src="./assets/outlineedittextdemo.gif" style="zoom:33%;" />
 
 # 使用方法
 

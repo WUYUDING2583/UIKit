@@ -4,7 +4,7 @@
 
 This is a edit text component contains outline title and bottom tip, which can set the background and color of each part by yourself.
 
-![](C:\Users\NTUCLHUB\Desktop\AndroidStudy\workspace\UIKit\usage\assets\outlineedittextdemo.gif)
+<img src=".\assets\outlineedittextdemo.gif" style="zoom:33%;" />
 
 # Usage
 

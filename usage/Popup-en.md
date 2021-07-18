@@ -4,7 +4,7 @@
 
 This is a top popup window, including 4 basic types: *success*, *info*, *error*, *warning*. It also support customize the color, duration, click event and close event.
 
-![](C:/Users/NTUCLHUB/Desktop/AndroidStudy/workspace/UIKit/usage/assets/popuptopdemo.gif)
+<img src="./assets/popuptopdemo.gif" style="zoom:33%;" />
 
 # Usage
 

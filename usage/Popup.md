@@ -4,7 +4,7 @@
 
 这是一个顶部弹框，分为*success*, *info*, *error*, *warning*四种类型，支持自定义颜色，持续时间，点击事件和关闭事件。
 
-![](./assets/popuptopdemo.gif)
+<img src="./assets/popuptopdemo.gif" style="zoom:33%;" />
 
 # 用法
 
