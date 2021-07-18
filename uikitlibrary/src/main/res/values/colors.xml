@@ -12,4 +12,5 @@
     <color name="info">#0097CE</color>
     <color name="error">#E54F42</color>
     <color name="warning">#FEB82B</color>
+    <color name="gray">#999999</color>
 </resources>
