@@ -20,9 +20,7 @@ public class PopupActivity extends AppCompatActivity {
     }
 
     public void success(View view) {
-
-        Popup.top(this, "Success")
-                .success();
+        Popup.top(this, "Success").success();
     }
 
     public void error(View view) {
